@@ -6,7 +6,7 @@ from luma.core.render import canvas
 from luma.oled.device import ssd1306
 import sys
 import time
-
+import requests
 
 
 
