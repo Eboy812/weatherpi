@@ -42,7 +42,7 @@ def lan_ip():
 def report():
     data = bme280.sample(bus, address, calibration_params)
     API_ENDPOINT = 'http://ford.shelms.io/api/'
-    r = requests.post(API_ENPOINT,
+    r = requests.post(API_ENDPOINT,
 	data ={'celsius': data.temperature})
     print(r.text) 
 
