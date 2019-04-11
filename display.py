@@ -39,6 +39,11 @@ def lan_ip():
     ip = str(f.read())
     return "IP Address: %s" % ip.rstrip('\r\n').rstrip('')
 
+def report():
+    data = bme280.sample(bus, address, calibration_params)
+    API_URL = 'http://ford.shelms.io/api/'
+    r = requests.post(API_URL, data.temperature) 
+
 def main():
     data = bme280.sample(bus, address, calibration_params)
     freesans = ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Black.ttf',20)
@@ -62,6 +67,7 @@ def main():
         print (data.temperature*9/5+32)
 while True:
     main()
+    report()
     time.sleep(10)
     
     
