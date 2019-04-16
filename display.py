@@ -44,6 +44,8 @@ def report():
     API_ENDPOINT = 'http://ford.shelms.io/api/'
     r = requests.post(API_ENDPOINT,
 	data ={'celsius': data.temperature})
+    h = data.humidity
+    p = data.pressure
     print(r.text) 
 
 def main():
