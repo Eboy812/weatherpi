@@ -42,11 +42,13 @@ def lan_ip():
 def report():
     data = bme280.sample(bus, address, calibration_params)
     API_ENDPOINT = 'http://ford.shelms.io/api/'
+    API_ENDPOINTRH = 'http://ford.shelms.io/api/RH'
+    API_ENDPOINTBH = 'http://ford.shelms.io/api/BH'
     r = requests.post(API_ENDPOINT,
 	data ={'celsius': data.temperature})
-    h = requests.post(API_ENDPOINT + 'humi/',
+    h = requests.post(API_ENDPOINTRH + 'humi/',
 	 data ={'RH': data.humidity})
-    p = requests.post(API_ENDPOINT + 'barom/',
+    p = requests.post(API_ENDPOINTBH + 'barom/',
          data ={'BP': data.pressure})
     print(r.text) 
 
