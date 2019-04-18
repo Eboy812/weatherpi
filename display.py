@@ -47,10 +47,12 @@ def report():
     r = requests.post(API_ENDPOINT,
 	data ={'celsius': data.temperature})
     h = requests.post(API_ENDPOINT + 'RH/',
-	 data ={'RH': data.humidity})
+	data ={'rh': data.humidity})
     p = requests.post(API_ENDPOINT + 'BH/',
-         data ={'BH': data.pressure})
-    print(r.text) 
+        data ={'pressure': data.pressure})
+    print(r.text)
+    print(h.text)
+    print(p.text) 
 
 def main():
     data = bme280.sample(bus, address, calibration_params)
