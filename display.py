@@ -52,7 +52,8 @@ def report():
         data ={'pressure': data.pressure})
     print(r.text)
     print(h.text)
-    print(p.text) 
+    print(p.text)
+    print(data.pressure) 
 
 def main():
     data = bme280.sample(bus, address, calibration_params)
